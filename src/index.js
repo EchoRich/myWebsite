@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-07-01 15:50:25
- * @LastEditTime: 2021-07-01 16:18:46
+ * @LastEditTime: 2021-08-03 18:30:39
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \mywebsite\src\index.js
@@ -9,7 +9,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
  import Login from  './pages/Login'
-
+import './monitor'
 
 ReactDOM.render(
 <div>
