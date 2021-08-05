@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-07-01 16:02:42
- * @LastEditTime: 2021-07-01 21:08:30
+ * @LastEditTime: 2021-08-03 18:38:50
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \mywebsite\src\pages\Login\index.js
@@ -17,14 +17,15 @@ import {LoginWrapper} from  './style'
     const handleGetNew = () =>{
 
     }
+    const handleTest = () => {
+     console.log( window.test.test)
+    }
     return (
      <LoginWrapper >
        <div className="wrapper" ref={domRef}>
         <div className="formWrapper" style={{transform:  `translate(${style.x}px, ${style.y}px)`}}>
-           <div className="left-part">
-            
+           <div className="left-part">          
               <img src={avatar} alt="" />
-
            </div>
            <div className="right-part">
              <header>
@@ -55,7 +56,7 @@ import {LoginWrapper} from  './style'
               
             </section>
             <footer>
-              <button className="btn btn-primary btn-full-width" type="submit">登录</button>
+              <button className="btn btn-primary btn-full-width" onClick={handleTest}>登录</button>
 
 
             </footer>

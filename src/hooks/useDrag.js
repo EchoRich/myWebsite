@@ -1,7 +1,7 @@
 /*
  * @Author: liuRich
  * @Date: 2021-07-01 20:30:20
- * @LastEditTime: 2021-07-02 09:00:38
+ * @LastEditTime: 2021-08-03 15:40:31
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \mywebsite\src\hooks\useDrag.js
@@ -33,7 +33,7 @@
           positionRef.current.lastX = positionRef.current.currentX 
           positionRef.current.lastY = positionRef.current.currentY
           domRef.current.removeEventListener('mousemove', handleMouseMove)
-           domRef.current.removeEventListener('mouseover', handleMouseOver)
+           domRef.current.removeEventListener('mouseup', handleMouseOver)
          }
      domRef.current.addEventListener('mousedown', onMoveStart)
     }, [])
