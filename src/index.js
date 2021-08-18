@@ -1,19 +1,19 @@
 /*
  * @Author: your name
  * @Date: 2021-07-01 15:50:25
- * @LastEditTime: 2021-08-03 18:30:39
+ * @LastEditTime: 2021-08-18 12:25:08
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \mywebsite\src\index.js
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
- import Login from  './pages/Login'
+ import Home from  './pages/Home'
 import './monitor'
 
 ReactDOM.render(
-<div>
-  <Login/>
+<div id ="home">
+  <Home/>
 </div>,
   document.getElementById('root')
 );
