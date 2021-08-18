@@ -1,4 +1,4 @@
-'use strict';
+
 
 const fs = require('fs');
 const path = require('path');
@@ -356,6 +356,17 @@ module.exports = function (webpackEnv) {
         // from the current package.
         PnpWebpackPlugin.moduleLoader(module),
       ],
+    },
+    devServer: {
+      contentBase: path.resolve(__dirname, "dist"),
+      before(router){
+        router.get("/success", function (req,res){
+          res.json({id: 1})
+        })
+        router.post("/error", function (req,res){
+          res.sendStatus(500)
+        })
+      }
     },
     module: {
       strictExportPresence: true,

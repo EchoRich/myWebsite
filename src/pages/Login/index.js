@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-07-01 16:02:42
- * @LastEditTime: 2021-08-16 22:29:30
+ * @LastEditTime: 2021-08-18 12:20:10
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \mywebsite\src\pages\Login\index.js
@@ -41,7 +41,7 @@ import {LoginWrapper} from  './style'
         }
      }
      const sendAjaxFail  = () => {
-        let xhr  = new window.XMHttpRequest();
+        let xhr  = new window.XMLHttpRequest();
         xhr.open("POST", "/error", true); // open(method,url,async)
         // XMLHttpRequest 对象如果要用于 AJAX 的话，其 open() 方法的 async 参数必须设置为 true：
         xhr.responseType="json";
