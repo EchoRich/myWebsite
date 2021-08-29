@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <ul>
+    <li>this is ttest shift  + alt  可以直接选中 </li>
+    <li>this is ttest shift  + alt  可以直接选中 </li>
+    <li>this is ttest shift  + alt  可以直接选中 </li>
+  </ul>
+  <script>
+    class Jquery{
+      constructor(selector){
+        this.selector  = selector;
+        let elements  = document.querySelectorAll(selector)
+        this.length = length
+        for(let i  = 0 ; i< this.length; i++){
+          this.i = elements[i]
+        }
+
+      }
+       html() {
+         return this[0].innerHTML
+       }
+       addClass(cls) {
+         for(let i  =  0; i< this.length; i++){
+           this[i].className= cls
+         }
+       }
+      
+    }
+    widow.$= function (selector){
+    return new Jquery(selector) // 返回的东西里面有html方法   //有 length 有元素数组 还可以添加元素等等 
+    }
+    // 所谓的简单方法封装其实就是通过一个函数然后返回一个实例  
+  </script>
+</body>
+</html>
