@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .parent{
+      width: 1000px;
+      height: 400px;
+      background: gray;
+       text-align: center;
+       display: table-cell;
+       vertical-align: middle;
+    }
+    .children{
+      width: 100px;
+      height: 100px;
+      display:  inline-block;
+      background: red;
+    }
+  </style>
+</head>
+<body>
+  
+  <p>
+    设置父元素是table-cell然后vertical
+     middle  
+     text-align center 
+     子元素设置一个display:inline-block /inline
+  </p>
+  <p>剩下的三种方法就是 
+    子绝父相百分之五然后设置transformL:translate(x, y )
+    2.设置margin-left.margin margin-top
+    3. 设置flex布局 
+  </p>
+   <div class="parent">
+     <div class="children">
+       
+     </div>
+   </div>
+</body>
+</html>
