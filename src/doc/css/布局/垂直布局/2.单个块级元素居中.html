@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .parent{
+      width: 1000px;
+      height: 400px;
+      background: gray;
+      display: table;
+    
+   
+      
+    }
+    .children{
+      width: 100%; 
+      height: 100%;
+      display: table-cell;
+      vertical-align:  middle;
+      margin-top: 300px;
+    }
+    .children>div{
+      width: 100px;
+      height: 100px;
+      display:  inline-block;
+      background: red;
+    }
+  </style>
+</head>
+<body>
+ <p>子元素是跨级元素的时候可以日通过给父元素设置display：table-cell来设置元素然后vertical-align :middle 
+   但是注意点是 如果父元素的宽度和高度设置了百分比的话无效, 但是可以通过给设置百分比的父元素添加一个display： table来解决这个问题 
+
+ </p>
+ <p>设置了display: table-cell的元素如果再设置了margin不会生效</p>
+  
+   <div class="parent">
+     <div class="children">
+       <div>huanyin</div>
+     </div>
+   </div>
+</body>
+</html>

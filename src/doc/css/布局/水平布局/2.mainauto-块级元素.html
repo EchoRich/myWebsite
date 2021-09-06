@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .parent{
+      width: 1000px;
+      height: 400px;
+      background: gray
+    }
+    .children{
+      width: 100px;
+      height: 100px;
+      background: red;
+       margin:  0 auto
+    }
+  </style>
+</head>
+<body>
+   <p>原理在margin有结余的同时如果左右margin设置了auto将会评分剩余空间 如果上下的margin设置了auto  器计算值为 0 
+   </p>
+   <p>margin : auto的缺点是  必须定宽  ， 宽度要小于父元素</p>
+   <div class="parent">
+     <div class="children"></div>
+   </div>
+</body>
+</html>

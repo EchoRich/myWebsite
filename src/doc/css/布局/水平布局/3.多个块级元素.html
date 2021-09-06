@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .parent{
+      width: 1000px;
+      height: 400px;
+      background: gray;
+      text-align: center;
+    }
+    .children{
+      width: 100px;
+      height: 100px;
+      background: red;
+      display:  inline-block;
+    }
+    .children:first-of-type{
+      margin-right: 10px
+    }
+  </style>
+</head>
+<body>
+  <p>多个元素居中就是设置inline-blcok 然后设置text-align:center
+只会对行内元素有效 text-align 会有属性继承  影响到后台 ， 块级元素改成inline-block 换行空格会产生元素间隔 ，如果子元素宽度大于父元素宽则无效，只有后代行内内容中宽度小于设置text-align属性的元素宽度的时候，消除元素的换行的影响， 设置font-size:  0 , 那就在子元素下面也设置font-size
+
+
+  </p>
+  
+   <div class="parent">
+     <div class="children"></div> <div class="children"></div>
+   </div>
+</body>
+</html>

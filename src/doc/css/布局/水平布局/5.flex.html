@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .parent{
+      width: 1000px;
+      height: 400px;
+      background: gray;
+       text-align: center
+    }
+    .children{
+      width: 100px;
+      height: 100px;
+      display:  inline-block;
+      background: red;
+    }
+  </style>
+</head>
+<body>
+  <p>子元素是文本元素或者是行内元素或者是行内块级元素  使用tetxt-align</p>
+  <p>缺点是只会对行内元素有效 ，如果子元素宽度大于父元素宽则无效，只有后代行内内容中宽度小于设置text-align属性的元素宽度的时候， 才会水平居中</p>
+  
+   <div class="parent">
+     <div class="children">
+       <div>huanyin</div>
+     </div>
+   </div>
+</body>
+</html>
