@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* input:disabled{
+      outline: none
+    }
+    input:checked{
+      border: none
+    }
+    input:default{
+      box-shadow: 0 0 2px  1px coral
+    }
+    input:empty{
+    
+       background: yellow
+    }
+    input:enabled{
+    box-shadow: 0 0 2px 1px royalblue; 
+
+    }
+    p{
+       width:200px;
+        height: 200px;
+        background: yellow;
+
+    }
+    p:empty{
+      background: red;
+    }
+    input:in-range{
+      background:yellowgreen;
+      color: blue
+    }
+    input:out-of-range{
+      background: pink;
+      color: blueviolet
+    }
+    input:invalid{
+      background: red
+    }
+    input:optional{
+       background:gold
+    }
+    p:first-child{
+      color: red
+    }
+    div:first-child{
+      color: yellow
+    } */
+    p:first-child{
+      color: red
+    }
+    h1:first-child{
+      color: red
+    }
+    span:first-child i{
+      color: red
+    }
+    h1:first-of-type{
+      color: yellow
+    }
+   p:nth-of-type(2){
+     color: pink
+   }
+   p:only-child{
+     color: sandybrown
+   }
+   /**
+  before
+  after
+   first-line
+   */
+   #weiyuansu::before{
+      content: "这是伪元素"
+   }
+   p::first-letter{
+      font-size: 20px
+   }
+
+
+  </style>
+</head>
+<body>
+  <!-- <p>伪类的操作对象是文档树中已有的元素 ， 而微元素创建了一个文档外的元素
+  伪类元素一般是单冒号， 
+  但是伪元素是双冒号
+
+  </p>
+  <p>input default伪类是有默认元素的时候才会设置 
+    该选择器可以在button  input type ="checkbox" 和input  type ="radio"中使用 
+  </p>
+  <p>input: range是在范围内的 
+    input  type="number"
+  </p>
+  <p>input:out-of-range是在范围外的东西， 可以用来做校验的东西</p>
+  <p>input: valid表示需要验证通过之后才会是有的样式 比如required </p>
+  <p>input: required 验证 </p>
+  <p>input: optional表示 没有required属性的input select 或者是textarea </p>
+  <input type="text" >
+  <input type="radio" checked>
+  <input type="checkbox" checked>
+  <input type="radio" name="season" id="spring" checked>
+<label for="spring">Spring</label>
+
+<input type="radio" name="season" id="summer" >
+<label for="summer">Summer</label>
+
+<input type="radio" name="season" id="fall">
+<label for="fall">Fall</label>
+
+<input type="radio" name="season" id="winter">
+<label for="winter">Winter</label>
+<input id="test" type="number" min="1" required max="10" onchange="handleInput()">
+<p>div</p>
+<p></p>
+<div>
+  <span>11111</span>
+  <span>222</span>
+  <span>333</span>
+</div> -->
+<!-- <p>P:first-child就是父元素中的第一个子元素 符合p元素就可以了
+   如果想要 某个元素下的第一个子元素是
+   ul>:first-child{}
+</p>
+<p>p: first-of-type就是父元素下面第一个这种类型的元素 </p>
+<p>第222一个子元素</p>
+<h1><i>第二个子元素</i><span>3333</span></h1>
+<div>
+  <p>第一个子元素</p>
+  <h1><i>第二个子元素</i><span>3333</span></h1>
+  <p>第二个p元素</p>
+  <span><i>第三个子元素</i></span>
+  <span>第四个子元素</span>
+  <p>99999999999</p>
+  <div>
+    <p>44444444444444444</p>
+    <div><p>888888</p></div>
+    <h1>232323</h1>
+  </div>
+</div>
+<p>第一个子元素</p>
+  <h1>第二个子元素</h1>
+  <span>第三个子元素</span>
+  <span>第四个子元素</span> -->
+  <p>伪元素的话那么就是元素不能选中的 </p>
+  <p id="weiyuansu"></p>
+</body>
+<script>
+  function handleInput () {
+    console.log(1111,  document.getElementById("test").value)
+  }
+
+
+</script>
+</html>
