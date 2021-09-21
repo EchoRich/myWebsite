@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  html,body{
+    width: 100%;
+  height: 100%;
+}
+  .test1{
+    width: 100px;
+     height: 100%;
+     background:red;
+     float: left;
+     position: relative; /*提高层级*/
+    
+  }
+  .test2{
+   
+     height: 100%;
+     background:green;
+     margin-left: 100px;
+  }
+  .parent{
+    height: 100%
+  }
+  .test2 .children{
+    clear: both 
+    /* 如果使用了清除浮动之后 children的东西就会掉下来 */
+  }
+  .test2-wrapper{
+    overflow: hidden;
+    width: 100%; 
+    float: left;
+    background: yellow;
+    height: 100%;
+    margin-left: -100px;
+  }
+ 
+ 
+
+</style>
+<body>
+  <div class="parent">
+    <div class="test1">
+为了解决子元素浮动问题 ， 我们可以使用下面这种方法
+两个兄弟元素都设置floatleft，  第二个元素设置width百分百， 然后margin-left 第一个元素的宽度 ， 这个时候是在同一行展示的 ，  然后我们可以给第一个元素设置 position: relative来提高层级 ， 然后第二个元素的子元素设置margin-left  这样就事项了两列布局
+    </div>
+    <div class="test2-wrapper">
+      <div class="test2">
+        <div class="children">
+          这是一个内部元素如果使用了清除浮动
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  
+</body>
+</html>

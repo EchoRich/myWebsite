@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  html,body{
+    width: 100%;
+  height: 100%;
+}
+  .test1{
+    width: 100px;
+     height: 100%;
+     background:red;
+   
+    position: absolute;
+     left: 0;
+     top: 0;
+  
+    
+  }
+  .test2{
+   
+     height: 100%;
+     background:green;
+     position: absolute;
+     left: 100px;
+     top: 0px;
+     right: 0px;
+
+  }
+  .parent{
+    height: 100%;
+    
+     width: 100%;
+     position: relative
+  }
+ 
+ 
+ 
+
+</style>
+<body>
+
+  <div class="parent">
+    <div class="test1">
+      父元素设置relatvie  两个子元素都设置成absolte 然后  第一个元素设置 left 0  top: 0  右边的元素设置left： 左边元素的宽度 ， right: 0 top: 0
+     
+
+    </div>
+    <div class="test2">
+      
+    </div>
+  </div>
+
+
+  
+</body>
+</html>

@@ -11,16 +11,18 @@
       height: 400px;
       background: gray;
       text-align: center;
+      font-size: 0  /* 解决换行的间距问题,但是注意也要在子元素下面进行相应的font-size的设置  */
     }
     .children{
       width: 100px;
       height: 100px;
       background: red;
       display:  inline-block;
+      font-size: 10px
     }
-    .children:first-of-type{
+    /* .children:first-of-type{
       margin-right: 10px
-    }
+    } */
   </style>
 </head>
 <body>
@@ -31,7 +33,7 @@
   </p>
   
    <div class="parent">
-     <div class="children"></div> <div class="children"></div>
+     <div class="children">123</div><div class="children">2323</div>
    </div>
 </body>
 </html>

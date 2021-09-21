@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  html,body{
+    width: 100%;
+  height: 100%;
+}
+  .test1{
+    width: 100px;
+     height: 100%;
+     background:red;
+   
+    
+  
+    
+  }
+  .test2{
+   
+     height: 100%;
+     background:green;
+     flex: 1; /*就相当于 百分直白减去100px 就是自己去分配宽度 很nice的属性*/
+   
+  }
+  .parent{
+    height: 100%;
+     display: flex;
+     width: 100%;
+  }
+ 
+ 
+ 
+
+</style>
+<body>
+
+  <div class="parent">
+    <div class="test1">
+     设置flex布局 ， 需要自适应的元素里面设置flex: 1 
+     然后就会被自己盛满了 
+
+      
+      
+
+    </div>
+    <div class="test2">
+      
+    </div>
+  </div>
+
+
+  
+</body>
+</html>

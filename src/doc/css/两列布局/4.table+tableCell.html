@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  html,body{
+    width: 100%;
+  height: 100%;
+}
+  .test1{
+    width: 100px;
+     height: 100%;
+     background:red;
+   
+     display: table-cell;
+  
+    
+  }
+  .test2{
+   
+     height: 100%;
+     background:green;
+   /* 会形成一个独立的区块 */
+   
+     display: table-cell
+  }
+  .parent{
+    height: 100%;
+     display: table;
+     width: 100%;
+  }
+ 
+ 
+ 
+
+</style>
+<body>
+
+  <div class="parent">
+    <div class="test1">
+      父元素设置了display: table 两个子元素设置display：table-cell 然后就可以实现了 ， 好像是比较简单的说 
+      
+      
+
+    </div>
+    <div class="test2">
+      
+    </div>
+  </div>
+
+
+  
+</body>
+</html>

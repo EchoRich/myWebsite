@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  html,body{
+    width: 100%;
+  height: 100%;
+}
+  .test1{
+    width: 100px;
+     height: 100%;
+     background:red;
+     float: left;
+  
+    
+  }
+  .test2{
+   
+     height: 100%;
+     background:green;
+   /* 会形成一个独立的区块 */
+     overflow:hidden;
+  }
+  .parent{
+    height: 100%
+  }
+ 
+ 
+ 
+
+</style>
+<body>
+
+  <div class="parent">
+    <div class="test1">
+       设置两个子元素 ，第一个子元素设置浮动， 第二个子元素设置 overflow , 形成一个独立的区块 ， 但是这样有一个缺点就是如果右边的元素中不想进行移除隐藏咋整
+      
+
+    </div>
+    <div class="test2">
+      
+    </div>
+  </div>
+
+
+  
+</body>
+</html>
