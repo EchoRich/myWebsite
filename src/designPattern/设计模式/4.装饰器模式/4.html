@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+    用户名<input type="text" id="userName">
+    密码：<input type="text">
+    <button id="submit-btn">提交</button>
+  
+  <script>
+    Function.prototype.before  = function (beforeFn){
+      let  _this  = this;
+      return function () {
+        let res = beforeFn.apply(this, arguments)
+       res&&(_this.apply(this, arguments)) 
+      }
+
+    }
+    // 我们现在要进行两个校验一个是不能为空另一个是长度必须超过六个字 ， 如果按照装饰器模式的话 ， 我这个空就要放在后面了 
+
+    function submit() {
+      console.log("submit")
+    }
+    submit  = submit.before(function () {
+    let value  = document.getElementById("userName").value;
+    
+    if(value.length< 6){
+      return  alert("length< 6")
+    }
+    return true
+    })
+    submit  =  submit.before(function () {
+      let value  = document.getElementById("userName").value;
+      if(!value){
+       return alert("not null")
+      }
+      return true
+    })
+    document.getElementById("submit-btn").addEventListener("click",submit)
+  </script>
+  
+</body>
+</html>
