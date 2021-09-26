@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+<ul id="todos">
+  
+
+</ul>
+<!-- <script>
+  let todos  = document.getElementById("todos")
+  window.onload= function () {
+    fetch("/totos").then(res =>res.json).then(response => {
+      todos.innerHTML = response.map(item => 
+      `
+      <li>
+    <input type="checkbox" ${item.complete?"checked": ""} value=${item.id}>${item.content}
+  </li>
+      
+      `)
+    })
+    function toggle(id){
+      fetch("/toggle/${id}").then(res=>res.json).then(response => {
+         console.log(response)
+      })
+    }
+    todos.addEventListener("click", function () {
+      let checkbox  = event.target;
+      let id  = checkbox.value; 
+      toggle(id)
+    })
+  }
+   // 这个就是点击的时候调用接口 ， 我们可以做一个防抖的处理
+</script> -->
+<script>
+  let todos = document.querySelector('#todos');
+    window.onload = function(){
+        fetch('/todos').then(res=>res.json()).then(response=>{
+            todos.innerHTML = response.map(item=>`<li "><input value="${item.id}" type="checkbox" ${item.completed?"checked":""}/>${item.text}</li>`).join('');
+        });
+    }
+     function toggle(id){
+       fetch(`/toggle/${id}`).then(res =>res.json).then(res => {
+         console.log(res)
+       })
+     }
+     let lazyLoad  = (function (id) {
+        let ids  =  [];
+         let timer;
+         return function (id){
+           ids.push(id);
+            if(!timer){
+              timer  = setTimeout(() => {
+                toggle(ids.join(","));
+                 ids  = null;
+                  clearTimeout(timer);
+                  timer = null
+                
+              }, 2000);
+
+            }
+         }
+
+     })()
+    todos.addEventListener("click", function (event) {
+       let checkbox  = event.target;
+       let id  = checkbox.id;
+       lazyToggle(id)
+
+    })
+</script>
+</body>
+</html>

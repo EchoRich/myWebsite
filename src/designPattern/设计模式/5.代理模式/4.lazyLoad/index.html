@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul id="background">
+    <li data-src="img1">图片1 </li>
+    <li data-src="img2">图片2 </li>
+  </ul>
+  <div id="myImage"></div>
+  <script>
+    let container  = document.querySelector("#backgrounnd")
+     let myImg  = document.querySelector("#myImage")
+     let Background  =(src) => {
+        let img  = new Image()
+        myImg.appendChild(img)
+        return {
+          set(src){
+            img.src= src
+
+          }
+        }
+     }
+     let  ProxyBakcground = (function (){
+       let img  = new Image()
+       img.onload= function () {
+         Background.set(this.src) //指的是img这个实例
+       }
+       return  {
+
+        set(src){
+           Background.set("/images/loading.gif")
+           img.src=src
+        }
+       }
+     })()
+     container.addEventListener("click", function (event) {
+        let src  =  event.target.dataset.src;
+        // Background.set(src)//原本应该是这样的 ， 但是为了加上懒加载 ， 我们可以使用proxy
+        ProxyBakcground.set(src)
+     })
+  </script>
+  
+</body>
+</html>

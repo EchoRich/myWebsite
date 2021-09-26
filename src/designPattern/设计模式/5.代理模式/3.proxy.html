@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <button id="clickMe">click me</button>
+  <script>
+    document.getElementById("clickMe").addEventListener("click", function () {
+      // $(this).css("color", "red") // 这个时候偶this代表的是这个btn
+      // 如果这个时候我要超时进行设置的话， 那么this就会失效
+      // setTimeout(
+      //  $.proxy(function() {
+      //    $(this).css("color", "red")
+      //  }, this) // 注意这个不能写在function里面因为不会自己执行的 
+      // , 100);
+
+
+         // 这个的本质是绑定了上下文环境
+    // function setColor() {
+    //   console.log(1111, this)
+    //   $(this).css("color", "red")
+    // }
+    // setColor= setColor.bind(this)
+   
+    // setTimeout(setColor , 100);
+     function setColor  () {
+       $(this).css("color", "red")
+     }
+      function proxy(fn, context) {
+        return function () {
+           fn.apply(context, arguments) // apply接受数组形式的参数
+        }
+
+      }
+      setTimeout(proxy(setColor, this), 100);
+
+    })
+ 
+  </script>
+</body>
+</html>
