@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  let likeState  ={
+    render(element) {
+      element.innerHTML="zan"
+
+    }
+
+  }
+   let likedState  ={
+     render (element) {
+       element.innerHTML = "取消"
+      
+     }
+   } 
+  
+  class Button  {
+     constructor(container) {
+       this.liked  = false
+       this.state  =  likeState;
+       this.element  = document.createElement("button");
+       container.appendChild(this.element)
+        this.render()
+
+     }
+     render() {
+       this.state.render(this.element)
+     }
+     setState(state) {
+       this.state  = state;  
+       this.render()
+
+     }
+
+  }
+   let button = new Button (document.body);
+     button.element.addEventListener("click", function () 
+    
+     {
+       button.setState(button.liked? likeState: likedState)
+       button.liked  = !button.liked
+     })
+</script>
+  
+</body>
+</html>

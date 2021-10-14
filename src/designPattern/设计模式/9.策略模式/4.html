@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+   <form id="userForm" action="">
+     name: <input type="text" name ="userName"/>
+     password: <input type="text" name="password">
+     phone: <input type="text" name="phone">
+      <input type="submit">
+   </form>
+   <script>
+      let Validator  = (function () {
+        let rules ={
+          notEmpty: function (val ,message) {
+             if(!val){
+                return  message
+             }
+
+          },
+          minLength(val,length, msg) {
+            if(!val || val.length<length){
+              return msg
+            }
+
+          },
+          maxLength (val, length,msg){
+             if(!val || val.length> length){
+                return  msg
+             }
+          }, 
+          isPhone(val, msg){
+             if(!/^1\d{10}/.test(val)){
+                return msg
+             }
+
+          }
+        }
+         let checks = []
+         function add  (element, rule) {
+           checks.push(function () {
+              let val  =element.value
+               let name  = rule.shift()
+               rule.unshift(val)
+                return rules[name]&& rules[name].apply(element, rule)
+           })
+
+         }
+        function start() {
+             console.log(1111, checks)
+             for(let i  = 0 ; i< checks.length; i++){
+               let  check  = checks[i]
+                let msg  = check();
+                if(msg){
+                   return msg
+                }
+             }
+          }
+        return {
+          add,  start
+        }
+      })()
+      let form  = document.getElementById("userForm")
+      form.onsubmit  = function () {
+        Validator.add(form.userName, ["notEmpty", "user name can not be null"])
+         Validator.add(form.userName,["maxLength", 10,  "can not oversize 10"])
+        let msg  =   Validator.start()
+         if(msg){
+            alert(msg)
+            return false
+         }
+         alert("校验通过")
+      }
+   </script>
+  
+</body>
+</html>
+
+<!-- 策略模式和状态模式不同的是状态模式会在方法中改变自己的状态并且状态之间是有关联的 ， 但是策略模式没有这种限制 -->
