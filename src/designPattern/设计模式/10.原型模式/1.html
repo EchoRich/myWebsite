@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        canvas{
+            border:1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="1000" height="600"></canvas>
+    <script>
+         let canvas = document.getElementById('canvas');
+        let ctx = canvas.getContext('2d');
+       function getRandomColor () {
+         let rand  = Math.floor(Math.random()* 0xFFFFFF).toString(16)
+         if(rand.length===6){
+           return  `#${rand}`
+         }else{
+           getRandomColor()
+         }
+       }
+      let circles  = []
+       
+       function Circle (x,y,radius) {
+          this.x  = x ;
+           this.y  = y;
+            this.radius =  radius 
+            this.color = getRandomColor()
+            circles.push(this)    
+       }
+       Circle.prototype.render  = function () {
+        ctx.beginPath();
+            ctx.arc(this.x,this.y,this.radius,0,2*Math.PI);
+            ctx.fillStyle =this.color
+            ctx.fill();
+
+       }
+       Circle.prototype.update  = function () {
+        this.radius--;
+         if(this.radius>0)return true 
+       }
+      
+    canvas.onmousemove  = function (e) {
+     circles.push(new Circle(e.clientX, e.clientY, 25))
+    }
+    setInterval(() => {
+               ctx.clearRect(0,0,1000,600);
+               console.log(11111,  circles.filter(item=>item.radius>0))
+            circles.forEach(item=>{
+                item.update()&&item.render(); 
+            });
+            circles = circles.filter(item=>item.radius>0);
+    }, 16);
+    // //随机颜色，十六进制方法；
+    //     function getRandomColor( ) {
+    //       var rand = Math.floor(Math.random( ) * 0xFFFFFF).toString(16);
+    //       if(rand.length == 6){        
+    //         return '#'+rand;
+    //       }else{
+    //         return getRandomColor();
+    //       }
+    //     }
+    //     let canvas = document.getElementById('canvas');
+    //     let ctx = canvas.getContext('2d');
+    //     let circles = [];
+    //     function Circle(x,y,radius){
+    //             this.x=x;
+    //             this.y=y;
+    //             this.radius= radius;
+    //             circles.push(this);
+    //     }
+    //     Circle.prototype.update = function() {
+    //             this.radius--;
+    //             if(this.radius>0){
+    //                 return true;
+    //             }
+    //     }
+    //     Circle.prototype.render = function(){
+    //         ctx.beginPath();
+    //         ctx.arc(this.x,this.y,this.radius,0,2*Math.PI);
+    //         ctx.fillStyle = getRandomColor();
+    //         ctx.fill();
+    //     }
+
+    //     let circle = new Circle(0,0,30);
+    //     canvas.onmousemove = function(event){
+    //         circles.push(new Circle(event.clientX,event.clientY,30));
+    //     }
+    //     setInterval(function(){
+    //         ctx.clearRect(0,0,1000,600);
+    //         circles.forEach(item=>{
+    //             item.update()&&item.render(); 
+    //         });
+    //         circles = circles.filter(item=>item.radius>0);
+    //     },1000);
+    </script>
+</body>
+</html>
