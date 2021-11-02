@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+    <li data-id="1">用户1</li>
+    <li data-id="2">用户2</li>
+    
+  </ul>
+  <p id="content"></p>
+  <script>
+    let lis  = document.querySelectorAll("li")
+     for(let i  =  0 ; i<  lis.length; i++){
+       lis[i].addEventListener("click", getUserByIdBridge)
+     }
+     function getUserByIdBridge() {
+       console.log(this)
+      let id  = this.dataset.id;
+      getUsersById(id, function (user) {
+        document.getElementById("content").innerHTML = user.name
+      })
+     }
+     function getUsersById(id, callback) {
+       // 依赖this  2. 操作dom  只能在浏览器中跑
+        // let id  = this.target.dataset.id;
+        let xhr  = new XMLHttpRequest()
+        xhr.open("GET", `/user/${id}`,true)
+        xhr.responseType ="json"
+        xhr.onreadystatechange = function () {
+          let user  = xhr.response;
+          if(xhr.readyState==4&&xhr.status==200){
+            callback(user)
+          
+          //  document.getElementById("content").innerHTML = user.name
+           }
+        }
+        xhr.send()
+
+     }
+  </script>
+</body>
+
+</html>
