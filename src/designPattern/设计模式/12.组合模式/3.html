@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<!-- <form action="">
+<p>
+  <label for="">用户名</label>
+  <input type="text">
+  <span>请输入用户名</span>
+</p>
+<p>
+  <label for="">密码</label>
+  <input type="password">
+  <span>请输入密码</span>
+</p>
+</form> -->
+<script>
+  //容器
+   class Container {
+    constructor(type) {
+        this.element  = document.createElement(type)
+        this.children  = []
+
+     }
+     add(child) {
+       this.children.push(child)
+       this.element.appendChild(child.element)
+       return this
+
+     }
+   }
+   class Item  {
+     constructor(type, title) {
+        this.element  = document.createElement(type)
+        this.element.innerHTML =title
+     }
+   }
+    class InputItem  {
+      constructor(type,name) {
+        this.element  = document.createElement(type)
+        this.element.name =name
+     }
+    }
+    let form  = new Container("form")
+     let userName  = new Container("p")
+      let password  = new Container("p")
+       let userNameLabel  = new Item("label","用户名")
+        let userNameInput  = new InputItem("input", "userName", )
+         let  userNameTip  = new Item("span", "请输入用户名")
+         userName.add(userNameLabel).add(userNameInput).add(userNameTip)
+         let passwordLabel  = new Item("label","密码")
+        let passwordInput  = new InputItem("input", "password", )
+         let  passwordTip  = new Item("span", "请输入密码")
+          password.add(passwordLabel).add(passwordInput).add(passwordTip)
+           form.add(userName).add(password)
+           document.body.appendChild(form.element)
+  
+
+</script>
+  
+</body>
+</html>
