@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+   <p id="number"> 0</p>
+    <button id="addBtn">+</button>
+    <button id="undoBtn">undo</button>
+  <script>
+     let number  = document.getElementById("number")
+     let worker  ={
+       oldValue : 0,
+        add () {
+           let oldValue  =   isNaN(number.innerHTML)?0: parseInt(number.innerHTML)
+           worker.oldValue = oldValue;
+          number.innerHTML  =    oldValue+1
+         
+        },
+        undo() {
+          number.innerHTML =   this.oldValue
+          
+        }
+     }     
+     class AddCommand  {
+       constructor(receiver){
+         this.receiver  = receiver;
+       }
+       execute() {
+          this.receiver.add()
+          
+       }
+     }
+     class UndoCommand  {
+       constructor(receiver){
+         this.receiver  = receiver;
+       }
+       execute() {
+          this.receiver.undo()
+          
+       }
+     }
+      let addCommand = new AddCommand(worker)
+      let undoCommand  = new UndoCommand(worker)
+      document.getElementById("addBtn").addEventListener("click", function() {
+        addCommand.execute()
+      })
+     
+      document.getElementById("undoBtn").addEventListener("click", function() {
+        undoCommand.execute()
+      })
+
+  </script>
+</body>
+</html>
