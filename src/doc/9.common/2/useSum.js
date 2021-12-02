@@ -45,3 +45,4 @@ function req(id) {
 }
 let r  = req("./sum.js")
  console.log(r)
+

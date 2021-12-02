@@ -1,0 +1,66 @@
+##\文件模块 自定义模块 
+
+require("./")
+require(绝对路径)
+##核心模块
+requrie("fs")
+
+## 第三方模块（需要安装）
+全局安装  -g (在命令行中使用)
+本地安装 require（） // 在代码中使用的 
+
+ 第三方目录会默认向上查找找不到报错  console.log(module.paths)
+
+ version :  0.0.0 // 从左到右  第一个大的变动 ， 第二个是一些api的更新第三个就修小bug
+
+
+ license 许可证 MIT是开源的意思 
+
+
+
+
+ ##  如何定义全局包（包是模块的集合 ）
+  在命令行中使用的 
+  包必须要有package.json
+  npm init  -y  这个里面就会有一个package.json了 
+找到对应的文件夹  然后npm link 
+#! /usr/bin/env node 这个是代表在当前的node环境中执行 
+
+
+ ## 发布包   
+ 先去官网上 nrm (node 的源管理器) npm nvm  版本管理器 
+ 
+npm link  就是链接本地包 
+ npm install nrm  -g
+
+ nrm  ls // 查看所有的仓库源
+ nrm use  npm    // 可以更改使用的s仓库 后面可以通过npm config list 进行查看
+
+ nrm  test   会对所有的包进行测试 
+
+ bin: {
+   command: "./entry.js"
+ }
+ entry.js中需要加上一个运行方式的
+
+ npm login  //登陆 liurich  liu123jiayou
+ npm  addUser
+ npm  publish
+
+ npm unpublish --force  这样子就可以删除了 
+
+
+
+
+ ## yarn 包管理器 
+ - yarn 需要npm 安装 
+ npm install yarn   -g // yarn  大约的速度就是 cnpm
+
+
+ yarn add jquery@2.0.0 --dev   
+ yarn remove jquery  --dev
+
+
+
+
+
