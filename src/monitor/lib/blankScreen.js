@@ -23,7 +23,7 @@ export function blankScreen () {
    let emptyPoints   = 0 
    function isWrapper (element){
       let selector = getSelector(element)
-       console.log(888,selector)
+    
        if(wrapperSelectors.indexOf(selector)>=0){
          emptyPoints++
        }

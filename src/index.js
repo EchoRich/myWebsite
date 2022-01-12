@@ -8,13 +8,22 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
+import  {HashRouter , Route,Switch} from "react-router-dom"
  import Home from  './pages/Home'
-import './monitor'
+ import User from "./pages/User"
+ import Login from "./pages/Login"
+// import './monitor'
 
 ReactDOM.render(
-<div id ="home">
-  <Home/>
-</div>,
+<HashRouter>
+<div>
+<Route path="/" component={Home} exact></Route>
+<Route path="/login" component={Login}></Route>
+  <Route path="/user" component={User}></Route>
+</div>
+
+
+</HashRouter>,
   document.getElementById('root')
 );
 

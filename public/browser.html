@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root">
+
+    </div> 
+    <script>
+            let historyObj  = window.history;
+        window.addEventListener("popstate", function (event) {
+            console.log(event, event.state)
+            root.innerHTML=window.location.pathname//真正的浏览器路径
+        })
+        window.onpushState = function (event) {
+            // 当我们调用pushState的方法的时候会出发次函数的执行
+            console.log(event, event.detail)
+            root.innerHTML=window.location.pathname//真正的浏览器路径
+        };
+        (function(historyObj) {
+            let pushState =   historyObj.pushState
+            historyObj.pushState = function (state,title,  pathname){
+                let result =   pushState.apply(historyObj, arguments)
+                if(typeof window.onpushState=="function"){
+                    window.onpushState(new CustomEvent("pushState", {detail:  {state,pathname}}))
+                }
+                return result
+
+            }
+
+        })(historyObj)
+    
+        let historyLength  = historyObj.length // 启动的时候条目的数量
+         setTimeout(function () {
+             historyObj.pushState({page: 1}, null,  "/page1")
+             console.log(1,historyObj.length-historyLength)
+         },  1000)
+         setTimeout(function () {
+             historyObj.pushState({page: 2}, null,  "/page2")
+             console.log(2,historyObj.length-historyLength)
+         },  2000)
+         setTimeout(function () {
+             historyObj.pushState({page: 3}, null,  "/page3")
+             console.log(3,historyObj.length-historyLength)
+         },  3000)
+         setTimeout(function () {
+             historyObj.back()
+         },  4000)
+         setTimeout(function () {
+             historyObj.pushState({page: 4}, null,  "/page4")
+             console.log(5,historyObj.length-historyLength)
+         },  5000)
+         setTimeout(function () {
+             historyObj.go(1)
+             console.log(6,historyObj.length-historyLength)
+         },  6000)
+    </script>
+    
+</body>
+</html>

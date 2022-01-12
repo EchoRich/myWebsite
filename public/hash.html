@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>可以通过alt shift 以及鼠标左键来实现同时输入 21.2 browerrouter</div>
+    <ul>
+        <a href="#/a">a</a>
+        <a href="#/b">b</a>
+        <a href="#/c">c</a>
+    </ul>
+    <div id="root"></div>
+    <script>
+        window.addEventListener("hashchange", function () {
+            // http://localhost/apu/user?id=1#top
+            console.log(window.location.hash) // 可以获取路径中的哈希值 #/a #/b
+            root.innerHTML=window.location.hash.slice(1)
+        })
+    </script>
+</body>
+</html>
