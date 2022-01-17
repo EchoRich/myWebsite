@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-01-12 21:14:33
- * @LastEditTime: 2022-01-17 11:03:48
+ * @LastEditTime: 2022-01-17 15:03:43
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /myWebsite/src/react-router-file/history/createBrowserHistory.js
@@ -83,13 +83,12 @@ function listen(listener) {
          },  
          
      }
-     action="PUSH"
-     listener()
-// let lastHash  = window.location.hash
-// window.location.hash  =  "/"
-// window.location.hash  = lastHash.slice(1)
- 
-    //  window.location.hash  = window.location.hash?window.location.hash.slice(1):  "/"
+      if(window.location.hash){
+          action="PUSH"
+          listener()
+      }else{
+          window.location.hash="/"
+      }
      return history
 }
 
