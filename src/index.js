@@ -1,14 +1,14 @@
 /*
  * @Author: your name
  * @Date: 2021-07-01 15:50:25
- * @LastEditTime: 2021-08-18 12:25:08
+ * @LastEditTime: 2022-01-18 08:56:36
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \mywebsite\src\index.js
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import  {HashRouter , Route,Switch} from "react-router-dom"
+import  {HashRouter , Route,Switch, Link} from "react-router-dom"
  import Home from  './pages/Home'
  import User from "./pages/User"
  import Login from "./pages/Login"
@@ -16,11 +16,25 @@ import  {HashRouter , Route,Switch} from "react-router-dom"
 
 ReactDOM.render(
 <HashRouter>
-<div>
+  <ul>
+    <li>
+      <Link to="/">
+      首页</Link>
+    </li>
+    <li>
+      <Link to="/user">
+      y用户管理 </Link>
+    </li>
+    <li>
+      <Link to="/login">
+      登陆</Link>
+    </li>
+  </ul>
+<Switch>
 <Route path="/" component={Home} exact></Route>
 <Route path="/login" component={Login}></Route>
   <Route path="/user" component={User}></Route>
-</div>
+</Switch>
 
 
 </HashRouter>,

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-01-12 21:14:33
- * @LastEditTime: 2022-01-15 10:59:21
+ * @LastEditTime: 2022-01-18 09:09:55
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /myWebsite/src/react-router-file/history/createBrowserHistory.js
@@ -40,10 +40,18 @@ function setState(newState) {
     * @param {*} state 跳转的状态
     * @return {*}
     */
-   function push(path,  state){
+   function push(to,  state){
         const action  ='PUSH'
-         globalHistory.pushState(state, null , path)
-          let location  = {state, pathname: path}
+         let pathname ;
+         if(typeof to =="object"){
+             pathname= to.pathname
+             state= to.state
+
+         }else{
+             pathname=to
+         }
+         globalHistory.pushState(state, null , pathname)
+          let location  = {state, pathname}
           setState({action, location})
 
    }

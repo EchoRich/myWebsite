@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-01-12 21:14:33
- * @LastEditTime: 2022-01-17 15:03:43
+ * @LastEditTime: 2022-01-18 09:11:21
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /myWebsite/src/react-router-file/history/createBrowserHistory.js
@@ -19,7 +19,7 @@ function createHashHistory() {
         if(index<0){
             index=0
         }else if(index >=stack.length){
-            index  = stash.length-1
+            index  = stack.length-1
         }
            
 
@@ -37,10 +37,18 @@ function createHashHistory() {
         go(-1)
        
    }
-   function push(path, nextState){
+   function push(to, nextState){
        action="PUSH"
-       state = nextState;
-       window.location.path  = path
+       let pathname        
+        if(typeof to=="object"){
+            state=to.state;
+            pathname= to.pathname;
+        }else{
+            pathname=to;
+            state= nextState
+        }
+       
+       window.location.path  = pathname
 
    }
     let listener  =  function () {
@@ -59,7 +67,7 @@ function createHashHistory() {
     })
     function setState(newLocation) {
         Object.assign(history, newLocation)
-        history.length = globalHistory.length;
+        history.length = stack.length;
         listeners.forEach(listener =>listener())
     }
 function listen(listener) {
@@ -93,4 +101,4 @@ function listen(listener) {
 }
 
  
- export default createBrowserHistory
+ export default createHashHistory
