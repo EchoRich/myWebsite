@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-07-01 16:02:42
- * @LastEditTime: 2021-08-18 12:20:10
+ * @LastEditTime: 2022-01-23 17:26:07
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \mywebsite\src\pages\Login\index.js
@@ -102,10 +102,21 @@ import React from  'react'
 
 //     )
 //  }
-export default function Login () {
+export default function Login (props) {
+   console.log(2222111,props)
+  let  login = () => {
+     localStorage.setItem("logined", true)
+      let to  ="/"
+       if(props.location&&props.location.state){
+         to=props.location.state.from 
+       }
+       props.history&&props.history.push(to)
+
+  }
    return (
      <div>
-       login
+       <form></form>
+       <button onClick={login}>登陆</button>
      </div>
    )
 }
